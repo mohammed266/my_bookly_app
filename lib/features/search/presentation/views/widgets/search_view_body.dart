@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_bookly_app/features/search/presentation/views/widgets/search_list_view.dart';
+import 'search_list_view.dart';
 
 import '../../../../../core/utils/styles.dart';
 import '../../manager/search_book_cubit/search_book_cubit.dart';
