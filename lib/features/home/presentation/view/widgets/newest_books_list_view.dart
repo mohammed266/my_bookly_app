@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../core/widgets/shimmer_best_seller.dart';
 import '../../manger/newest_books_cubit/newest_books_cubit.dart';
 
 import '../../../../../core/widgets/custom_error_widget.dart';
-import '../../../../../core/widgets/custom_loading_indicator.dart';
 import 'newest_book_list_view_item.dart';
 
 class NewestBooksListView extends StatelessWidget {
@@ -20,17 +20,17 @@ class NewestBooksListView extends StatelessWidget {
             itemBuilder: (context, index) => Padding(
               padding: const EdgeInsets.only(bottom: 20),
               child: NewestBooksListViewItem(
-                bookModel: state.booKs[index],
+                bookModel: state.booKs.items![index],
               ),
             ),
-            itemCount: state.booKs.length,
+            itemCount: state.booKs.items?.length,
           );
         } else if (state is NewestBooksFailure) {
           return CustomErrorWidget(
             errMessage: state.errMessage,
           );
         } else {
-          return const CustomLoadingIndicator();
+          return const ShimmerBestSeller();
         }
       },
     );

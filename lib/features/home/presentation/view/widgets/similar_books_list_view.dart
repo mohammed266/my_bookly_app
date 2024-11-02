@@ -21,12 +21,12 @@ class SimilarBooksListView extends StatelessWidget {
                 .height * .17,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: state.books.length,
+              itemCount: state.books.items?.length,
               itemBuilder: (context, index) =>
                Padding(
                 padding: const EdgeInsets.only(right: 9),
                 child: CustomBookItem(
-                  imageUrl: state.books[index].volumeInfo!.imageLinks?.thumbnail ?? "",
+                  imageUrl: state.books.items?[index].volumeInfo!.imageLinks?.thumbnail ?? "",
                   // imageUrl: "https://www.columbiactlibrary.org/wp-content/uploads/2012/10/books.png",
                 ),
               ),

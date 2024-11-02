@@ -6,7 +6,7 @@ sealed class NewestBooksState {}
 final class NewestBooksInitial extends NewestBooksState {}
 final class NewestBooksLoading extends NewestBooksState {}
 final class NewestBooksSuccess extends NewestBooksState {
-  final List<BookModel> booKs;
+  final BookModel booKs;
 
   NewestBooksSuccess(this.booKs);
 }

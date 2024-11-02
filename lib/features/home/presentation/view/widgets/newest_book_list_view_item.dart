@@ -8,7 +8,7 @@ import 'custom_book_image.dart';
 
 class NewestBooksListViewItem extends StatelessWidget {
   const NewestBooksListViewItem({super.key, required this.bookModel});
-  final BookModel bookModel;
+  final Items bookModel;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -23,7 +23,7 @@ class NewestBooksListViewItem extends StatelessWidget {
         child: Row(
           children: [
             CustomBookImage(
-              imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail,
+              imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail ?? "",
             ),
             const SizedBox(width: 20),
             Expanded(
@@ -33,29 +33,36 @@ class NewestBooksListViewItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .5,
                     child: Text(
-                      bookModel.volumeInfo!.title!,
+                      bookModel.volumeInfo!.title?.isNotEmpty == true
+                          ? bookModel.volumeInfo!.title!
+                          : 'No Title',
                       style: Styles.textStyle20,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   const SizedBox(height: 3),
-                  const Text(
-                    // bookModel.volumeInfo?.authors,
-                    'J.K Rowling',
+                  Text(
+                    bookModel.volumeInfo!.authors?.isNotEmpty == true
+                        ? bookModel.volumeInfo!.authors![0]
+                        : 'Unknown',
                     style: Styles.textStyle14,
                   ),
                   const SizedBox(height: 3),
                   Row(
                     children: [
                       Text(
-                        'Free',
+                        bookModel.saleInfo?.listPrice?.amount != null
+                            ? '${bookModel.saleInfo!.listPrice!.amount!.round()} ${bookModel.saleInfo!.listPrice!.currencyCode}'
+                            : 'Free',
                         style: Styles.textStyle20.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       const Spacer(),
-                      const BookRating(),
+                      BookRating(
+                        bookModel: bookModel,
+                      ),
                     ],
                   ),
                 ],

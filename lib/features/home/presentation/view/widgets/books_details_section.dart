@@ -1,7 +1,3 @@
-
-
-
-
 import 'package:flutter/material.dart';
 import '../../../data/models/book_model.dart';
 
@@ -13,7 +9,7 @@ import 'custom_book_item.dart';
 class BooksDetailsSection extends StatelessWidget {
   const BooksDetailsSection({super.key, required this.bookModel});
 
-  final BookModel bookModel;
+  final Items bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +21,12 @@ class BooksDetailsSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: width * .25),
           child: CustomBookItem(
             // imageUrl: "https://www.columbiactlibrary.org/wp-content/uploads/2012/10/books.png",
-          imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail ?? "",
+            imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail ?? "",
           ),
         ),
         const SizedBox(height: 10),
         Text(
-          "${bookModel.volumeInfo?.title}",
+          bookModel.volumeInfo!.title != null ? bookModel.volumeInfo!.title! : 'No Title',
           style: Styles.textStyle25.copyWith(
             fontWeight: FontWeight.bold,
           ),
@@ -41,7 +37,9 @@ class BooksDetailsSection extends StatelessWidget {
           opacity: .7,
           child: Text(
             // 'Rudyard Kipling',
-              "${bookModel.volumeInfo?.subtitle}"  ,
+            bookModel.volumeInfo!.authors?.isNotEmpty == true
+                ? bookModel.volumeInfo!.authors![0]
+                : 'Unknown',
             style: Styles.textStyle18.copyWith(
               fontWeight: FontWeight.w400,
               fontStyle: FontStyle.italic,
@@ -50,7 +48,8 @@ class BooksDetailsSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        const BookRating(
+         BookRating(
+          bookModel: bookModel ,
           mainAxisAlignment: MainAxisAlignment.center,
         ),
         const SizedBox(height: 10),

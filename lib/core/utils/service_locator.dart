@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import '../../features/search/data/repos/search_repo_impl.dart';
 import 'api_service.dart';
 import '../../features/home/data/repos/home_repo_impl.dart';
 
@@ -16,4 +17,8 @@ void setupServiceLocator() {
       getIt.get<ApiService>(),
     ),
   );
+  getIt.registerSingleton<SearchRepoImpl>(
+    SearchRepoImpl(
+      getIt.get<ApiService>(),
+    ),);
 }

@@ -1,36 +1,41 @@
-
-
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../core/utils/styles.dart';
+import '../../../data/models/book_model.dart';
 
 class BookRating extends StatelessWidget {
-  const BookRating({super.key, this.mainAxisAlignment=MainAxisAlignment.start,});
+  const BookRating({
+    super.key,
+    this.mainAxisAlignment = MainAxisAlignment.start,
+    required this.bookModel,
+  });
   final MainAxisAlignment mainAxisAlignment;
-  // final double rating;
-  // final int count;
+  final Items bookModel;
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment:mainAxisAlignment,
-      children: const [
-        Icon(
+      mainAxisAlignment: mainAxisAlignment,
+      children: [
+        const Icon(
           size: 14,
           FontAwesomeIcons.solidStar,
           color: Color(0xffFFDD4F),
         ),
-        SizedBox(width: 6),
+        const SizedBox(width: 6),
         Text(
-          '4.9',
+          bookModel.volumeInfo!.averageRating != null
+              ? bookModel.volumeInfo!.averageRating.toString()
+              : '0',
           style: Styles.textStyle16,
         ),
-        SizedBox(width: 5),
+        const SizedBox(width: 5),
         Opacity(
           opacity: .5,
           child: Text(
-            '254',
+            bookModel.volumeInfo!.ratingsCount != null
+                ? '(${bookModel.volumeInfo!.ratingsCount.toString()})'
+                : '(0)',
             style: Styles.textStyle14,
           ),
         ),
