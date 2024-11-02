@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import '../../../../core/errors/failures.dart';
-import '../models/book_model.dart';
+import '../../../../core/models/book_model.dart';
 
 abstract class HomeRepo{
  Future<Either<Failure,BookModel>> fetchNewestBooks({required int startIndex});

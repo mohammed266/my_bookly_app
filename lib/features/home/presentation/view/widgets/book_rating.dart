@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../../../../core/models/book_model.dart';
 import '../../../../../core/utils/styles.dart';
-import '../../../data/models/book_model.dart';
 
 class BookRating extends StatelessWidget {
   const BookRating({

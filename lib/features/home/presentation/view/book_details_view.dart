@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../data/models/book_model.dart';
+import '../../../../core/models/book_model.dart';
 import '../manger/similar_books_cubit/similar_books_cubit.dart';
 import 'widgets/book_details_view_body.dart';
 

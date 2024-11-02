@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_bookly_app/features/home/data/models/book_model.dart';
 
+import '../../../../../core/models/book_model.dart';
 import '../../../data/repos/home_repo.dart';
 
 part 'similar_books_state.dart';

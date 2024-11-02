@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../data/models/book_model.dart';
-import 'package:url_launcher/url_launcher.dart';
+import '../../../../../core/models/book_model.dart';
+import '../../../../../core/utils/functions/launch_custom_url.dart';
 
 import '../../../../../core/widgets/custom_button.dart';
 
@@ -30,11 +30,11 @@ class BooksActions extends StatelessWidget {
           ),
           Expanded(
             child: CustomButton(
-              onPressed: () async {
-                Uri uri = Uri.parse("${bookModel.volumeInfo?.previewLink}");
-                if (await canLaunchUrl(uri)) {
-                  await launchUrl(uri);
-                }
+              onPressed: () {
+                launchCustomURL(
+                  url: "${bookModel.volumeInfo?.previewLink}",
+                  context,
+                );
               },
               fontSize: 15,
               text: getText(bookModel),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../data/models/book_model.dart';
+import '../../../../../core/models/book_model.dart';
 import 'books_details_section.dart';
 import 'similar_books_section.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../../data/models/book_model.dart';
 
+import '../../../../../core/models/book_model.dart';
 import '../../../../../core/utils/styles.dart';
 import 'book_rating.dart';
 import 'custom_book_image.dart';

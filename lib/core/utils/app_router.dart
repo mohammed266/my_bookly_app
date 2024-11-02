@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/home/data/repos/home_repo_impl.dart';
-import '../../features/home/data/models/book_model.dart';
 import '../../features/search/data/repos/search_repo_impl.dart';
 import '../../features/search/presentation/manager/search_book_cubit/search_book_cubit.dart';
+import '../models/book_model.dart';
 import 'service_locator.dart';
 
 import '../../features/home/presentation/manger/similar_books_cubit/similar_books_cubit.dart';

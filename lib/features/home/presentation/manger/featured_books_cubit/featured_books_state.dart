@@ -1,5 +1,5 @@
 
-import '../../../data/models/book_model.dart';
+import '../../../../../core/models/book_model.dart';
 
 abstract class FeaturedBooksState {}
 

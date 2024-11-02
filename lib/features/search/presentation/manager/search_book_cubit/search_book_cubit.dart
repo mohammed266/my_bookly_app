@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_bookly_app/features/search/data/repos/search_repo.dart';
+import '../../../../../core/models/book_model.dart';
+import '../../../data/repos/search_repo.dart';
 
-import '../../../../home/data/models/book_model.dart';
 
 part 'search_book_state.dart';
 
@@ -20,7 +20,7 @@ class SearchBookCubit extends Cubit<SearchBookState> {
 
     result.fold((failure) {
       emit(SearchBookFailure(failure.errMessage));
-    }, (books) {
+    }, ( books) {
       loadedBooks.addAll(books.items as Iterable<Items>);
       emit(SearchBookSuccess(books));
     });

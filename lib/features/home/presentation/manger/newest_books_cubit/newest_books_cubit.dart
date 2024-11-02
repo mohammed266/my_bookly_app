@@ -2,8 +2,9 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_bookly_app/features/home/data/models/book_model.dart';
-import 'package:my_bookly_app/features/home/data/repos/home_repo.dart';
+import '../../../data/repos/home_repo.dart';
+
+import '../../../../../core/models/book_model.dart';
 
 part 'newest_books_state.dart';
 

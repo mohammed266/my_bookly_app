@@ -37,9 +37,11 @@ class _SearchViewBodyState extends State<SearchViewBody> {
             controller: controller,
             onPressed: () {
               if (controller.text.isEmpty) {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content: Text('Please, Enter book name!'),
-                ));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Please, Enter book name!'),
+                  ),
+                );
               } else {
                 BlocProvider.of<SearchBookCubit>(context).loadedBooks.clear();
                 BlocProvider.of<SearchBookCubit>(context).searchKey =
